@@ -1,0 +1,38 @@
+.top-bar {
+    height: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 3px solid #f7d373;
+
+    &__left-side {
+        &__logo {
+            margin-left: 2em;
+
+            img {
+                padding: 4px;
+                max-height: 4em;
+                object-fit: contain;
+            }
+        }
+    }
+
+    &__right-side {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: 15px;
+        font-weight: 600;
+
+        &__link {
+            padding: 10px 15px;
+            margin: 0 10px;
+
+            a {
+                outline: none;
+                color: black;
+                text-decoration: none;
+            }
+        }
+    }
+}

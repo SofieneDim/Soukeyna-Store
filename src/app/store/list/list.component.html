@@ -1,0 +1,14 @@
+<app-top-bar></app-top-bar>
+<div class="filter-ref">
+    <div>
+        <label>Référence</label>
+    </div>
+    <div>
+        <input type="text" placeholder="Recherche par référence" />
+    </div>
+</div>
+<div class="cards">
+    <div *ngFor="let item of products">
+        <app-card [item]="item"></app-card>
+    </div>
+</div>

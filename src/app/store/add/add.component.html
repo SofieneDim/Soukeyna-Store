@@ -1,0 +1,75 @@
+<app-top-bar></app-top-bar>
+<div class="container">
+    <form class="row" [formGroup]="storeForm" (ngSubmit)="onSubmit()">
+        <div class="col-6 ">
+            <div class="col-12 first-store-col">
+                <label class="form-label">Marque</label>
+                <ng-select class="store-dropdown" [items]="brandsNames" formControlName="source" [searchable]="false"
+                    [clearable]="true">
+                    <ng-template ng-option-tmp let-item="item">
+                        <h6 class="store-dropdown-item">
+                            {{ item }}
+                        </h6>
+                    </ng-template>
+                </ng-select>
+            </div>
+            <div class="col-md-12 store-col">
+                <label>Nom<span class="required-asterisk">*</span></label>
+                <input type="text" class="form-control" placeholder="Nom" formControlName="name" />
+            </div>
+        </div>
+        <div class="col-md-6 store-col row align-items-end justify-content-between">
+            <div class="col-md-4">
+                <label style="margin-bottom: 0;">Image<span class="required-asterisk">*</span></label>
+            </div>
+            <div class="image-col-preview col-md-4">
+                <img [src]="imageSrc" *ngIf="imageSrc" style="height: 170px">
+            </div>
+            <div class="col-md-4 upload-btn">
+                <button class="btn btn-warning" (click)="onUpload()" type="button">choisir image</button>
+                <input type="file" accept="image/*" id="store-add-img" (change)="onFileChange($event)"
+                    style="display: none;" formControlName="image" multiple="multiple" />
+            </div>
+        </div>
+        <div class="col-md-6 store-col">
+            <label>Prix<span class="required-asterisk">*</span></label>
+            <input type="number" class="form-control" placeholder="Prix en DT" formControlName="price" />
+        </div>
+        <div class="col-md-6 store-col">
+            <label>Type de tissu</label>
+            <input type="text" class="form-control" placeholder="Matière première" formControlName="fabricMaterial" />
+        </div>
+        <div class="col-md-6 store-col">
+            <label>Les tailles<span class="required-asterisk">*</span></label>
+            <div class="store-sizes">
+                <button (click)="onSelectSize('S')" type="button" [ngClass]="{
+                    'btn btn-warning': selectedSizes.includes('S'), 
+                    'btn btn-outline-warning': !selectedSizes.includes('S') }">S</button>
+                <button (click)="onSelectSize('M')" type="button" [ngClass]="{
+                    'btn btn-warning': selectedSizes.includes('M'), 
+                    'btn btn-outline-warning': !selectedSizes.includes('M') }">M</button>
+                <button (click)="onSelectSize('L')" type="button" [ngClass]="{
+                    'btn btn-warning': selectedSizes.includes('L'), 
+                    'btn btn-outline-warning': !selectedSizes.includes('L') }">L</button>
+                <button (click)="onSelectSize('XL')" type="button" [ngClass]="{
+                    'btn btn-warning': selectedSizes.includes('XL'), 
+                    'btn btn-outline-warning': !selectedSizes.includes('XL') }">XL</button>
+                <button (click)="onSelectSize('XXL')" type="button" [ngClass]="{
+                    'btn btn-warning': selectedSizes.includes('XXL'), 
+                    'btn btn-outline-warning': !selectedSizes.includes('XXL') }">XXL</button>
+                <button (click)="onSelectSize('XXXL')" type="button" [ngClass]="{
+                    'btn btn-warning': selectedSizes.includes('XXXL'), 
+                    'btn btn-outline-warning': !selectedSizes.includes('XXXL') }">XXXL</button>
+            </div>
+        </div>
+        <div class="col-md-6 store-col">
+            <label>Description</label>
+            <textarea type="text" class="form-control" placeholder="Notez ce que vous voulez..."
+                formControlName="description"></textarea>
+        </div>
+
+        <div class="col-12 store-col store-submit">
+            <button class="btn btn-warning" type="submit" [disabled]="!storeForm.valid">Ajouter</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+.filter-ref {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    label {
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    input {
+        outline: none;
+        padding: 3px 10px;
+        width: 204px;
+        border-radius: 10px;
+        border: 2px solid #f7d373;
+        background-color: none;
+    }
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 4rem 5vw;
+    padding: 0;
+    list-style-type: none;
+}
