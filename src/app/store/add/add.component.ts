@@ -94,6 +94,7 @@ export class AddComponent implements OnInit {
     }
 
     this.http.post('https://sk-api.intigo.tn/', formData).subscribe((res) => {
+      // this.http.post('http://localhost:8001/', formData).subscribe((res) => {
       this.storeForm.reset();
       this.imageSrc = undefined;
     });
