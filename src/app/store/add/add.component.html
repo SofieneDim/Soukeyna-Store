@@ -69,7 +69,7 @@
         </div>
 
         <div class="col-12 store-col store-submit">
-            <button class="btn btn-warning" type="submit" [disabled]="!storeForm.valid">Ajouter</button>
+            <button class="btn btn-warning" type="submit" [disabled]="!storeForm.valid || isLoading">Ajouter</button>
         </div>
     </form>
 </div>
