@@ -4,13 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { MyRouterGuardService } from './authentication/authGuard';
 
 const routes: Routes = [
-  {
-    path: 'auth',
-    loadChildren: () =>
-      import('./authentication/authentication.module').then(
-        (m) => m.AuthenticationModule
-      ),
-  },
+  // {
+  //   path: 'auth',
+  //   loadChildren: () =>
+  //     import('./authentication/authentication.module').then(
+  //       (m) => m.AuthenticationModule
+  //     ),
+  // },
   {
     path: 'store',
     loadChildren: () =>
