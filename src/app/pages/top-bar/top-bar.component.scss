@@ -8,11 +8,21 @@
     &__left-side {
         &__logo {
             margin-left: 2em;
+            position: relative;
 
             img {
                 padding: 4px;
                 max-height: 4em;
                 object-fit: contain;
+            }
+
+            span {
+                position: absolute;
+                bottom: 7px;
+                right: -17px;
+                font-size: 10px;
+                font-weight: 600;
+                color: #c7960e;
             }
         }
     }
