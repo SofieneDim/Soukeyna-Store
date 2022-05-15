@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { endpoint } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add',
@@ -94,17 +95,14 @@ export class AddComponent implements OnInit {
       formData.append(key, this.storeForm.value[key]);
     }
 
-    this.http
-      .post('https://sk-api.intigo.tn/', formData)
-      .subscribe((res: any) => {
-        // this.http.post('http://localhost:8001/', formData).subscribe((res: any) => {
-        if ((res.message = 'success')) {
-          this.storeForm.reset();
-          this.imageSrc = undefined;
-          this.isLoading = false;
-          const downloadUrl = res.product.image;
-          window.open(downloadUrl);
-        }
-      });
+    this.http.post(endpoint, formData).subscribe((res: any) => {
+      if ((res.message = 'success')) {
+        this.storeForm.reset();
+        this.imageSrc = undefined;
+        this.isLoading = false;
+        const downloadUrl = res.product.image;
+        window.open(downloadUrl);
+      }
+    });
   }
 }

@@ -4,11 +4,11 @@
         <label>Référence</label>
     </div>
     <div>
-        <input type="text" placeholder="Recherche par référence" />
+        <input type="number" placeholder="Recherche par référence" (input)="onSearch($event)" />
     </div>
 </div>
 <div class="cards">
     <div *ngFor="let item of products">
-        <app-card [item]="item"></app-card>
+        <app-card class="app-card" [item]="item"></app-card>
     </div>
 </div>
